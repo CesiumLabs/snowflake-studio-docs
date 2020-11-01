@@ -1,0 +1,39 @@
+{
+  "name": "snowflake-studio-docs",
+  "version": "1.0.0",
+  "description": "Docs package for Snowflake Studio.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd test && node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevSnowflake/snowflake-studio-docs.git"
+  },
+  "keywords": [
+    "docs",
+    "snowflake",
+    "studio",
+    "canvacord",
+    "discord"
+  ],
+  "author": "Snowflake107",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevSnowflake/snowflake-studio-docs/issues"
+  },
+  "homepage": "https://github.com/DevSnowflake/snowflake-studio-docs#readme",
+  "dependencies": {
+    "common-tags": "^1.8.0",
+    "fuse.js": "^3.4.6",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
+  }
+}
