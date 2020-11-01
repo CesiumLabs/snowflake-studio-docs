@@ -17,3 +17,4 @@ Docs.fetch('canvacord')
 # Available
 - canvacord
 - soundcloud
+- quickmongo

@@ -1,4 +1,5 @@
 {
   "canvacord": "https://raw.githubusercontent.com/DevSnowflake/canvacord/docs/v5.json",
-  "soundcloud": "https://raw.githubusercontent.com/DevSnowflake/soundcloud-scraper/docs/rewrite.json"
+  "soundcloud": "https://raw.githubusercontent.com/DevSnowflake/soundcloud-scraper/docs/rewrite.json",
+  "quickmongo": "https://raw.githubusercontent.com/DevSnowflake/quickmongo/docs/master.json"
 }

@@ -1,6 +1,6 @@
 {
   "name": "snowflake-studio-docs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Docs package for Snowflake Studio.",
   "main": "index.js",
   "scripts": {
