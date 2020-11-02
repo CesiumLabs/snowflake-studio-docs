@@ -13,6 +13,7 @@ const docCache = new Map()
 const Canvacord = 'canvacord'
 const SoundCloud = 'soundcloud-scraper'
 const QuickMongo = 'quickmongo'
+const Eco = 'quick.eco'
 
 function dissectURL (url) {
   const parts = url.slice(34).split('/')
@@ -50,6 +51,7 @@ class Doc extends DocBase {
       case Canvacord: return 'https://canvacord.js.org'
       case SoundCloud: return 'https://soundcloud-scraper.js.org'
       case QuickMongo: return 'https://quickmongo.js.org'
+      case Eco: return 'https://eco.js.org'
       default: return null
     }
   }
@@ -163,7 +165,8 @@ class Doc extends DocBase {
     const title = {
       'canvacord': 'Canvacord Docs',
       'soundcloud': 'SoundCloud Docs',
-      'quickmongo': 'QuickMongo Docs'
+      'quickmongo': 'QuickMongo Docs',
+      'quick.eco': 'quick.eco Docs'
     }[this.repo] || this.repo
 
     return {
@@ -201,7 +204,8 @@ class Doc extends DocBase {
     const project = {
       canvacord: 'Canvacord',
       soundcloud: 'Soundcloud-Scraper',
-      quickmongo: 'QuickMongo'
+      quickmongo: 'QuickMongo',
+      eco: 'quick.eco'
     }[name]
 
     return `https://github.com/DevSnowflake/${project}/blob/${branch}/`
