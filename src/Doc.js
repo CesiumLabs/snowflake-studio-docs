@@ -64,7 +64,7 @@ class Doc extends DocBase {
 
   get icon () {
     if (!this.baseURL) return null
-    return `${this.baseURL}/favicon.ico`
+    return `${this.baseURL}/static/icons/icon.png`
   }
 
   get color () {
@@ -111,6 +111,12 @@ class Doc extends DocBase {
     return filtered
   }
 
+  /**
+   * Returns Discord embed object
+   * @param {string} query The search query
+   * @param {object} options Embed options
+   * @param {boolean} [excludePrivateElements=false] If it should exclude private elements
+   */
   resolveEmbed (query, options = {}) {
     const element = this.get(...query.split(/\.|#/))
     if (element) return element.embed(options)
@@ -215,9 +221,16 @@ class Doc extends DocBase {
     return sources
   }
 
-  static async fetch (sourceName, { force } = {}) {
+  /**
+   * Fetch the docs
+   * @param {"canvacord"|"soundcloud"|"quickmongo"|"eco"} sourceName Docs source name
+   * @param {object} fetchOptions Fetch options
+   * @param {boolean} [fetchOptions.force=false] If it should forcefully fetch the doc 
+   * @returns {Promise<Doc>}
+   */
+  static async fetch (sourceName, fetchOptions = { force: false }) {
     const url = sources[sourceName] || sourceName
-    if (!force && docCache.has(url)) return docCache.get(url)
+    if (!fetchOptions.force && docCache.has(url)) return docCache.get(url)
 
     try {
       const data = await fetch(url).then(res => res.json())
