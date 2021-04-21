@@ -14,6 +14,7 @@ const Canvacord = 'canvacord'
 const SoundCloud = 'soundcloud-scraper'
 const QuickMongo = 'quickmongo'
 const Eco = 'quick.eco'
+const DiscordPlayer = 'discord-player'
 
 function dissectURL (url) {
   const parts = url.slice(34).split('/')
@@ -52,13 +53,14 @@ class Doc extends DocBase {
       case SoundCloud: return 'https://soundcloud-scraper.js.org'
       case QuickMongo: return 'https://quickmongo.js.org'
       case Eco: return 'https://eco.js.org'
+      case DiscordPlayer: return 'https://discord-player-docs.netlify.app'
       default: return null
     }
   }
 
   get baseDocsURL () {
     if (!this.baseURL) return null
-    const repo = [Canvacord, SoundCloud, QuickMongo].includes(this.repo) ? 'main' : this.repo;
+    const repo = [Canvacord, SoundCloud, QuickMongo, DiscordPlayer].includes(this.repo) ? 'main' : this.repo;
     return `${this.baseURL}/#/docs/${repo}/${this.branch}`
   }
 
@@ -68,12 +70,7 @@ class Doc extends DocBase {
   }
 
   get color () {
-    return 0x4d5e94;
-    // switch (this.repo) {
-    //   case Canvacord: return 0xff7272
-    //   case SoundCloud: return 0xd77112
-    //   default: return null
-    // }
+    return this.repo === DiscordPlayer ? 0xff5959 : 0x4d5e94;
   }
 
   get (...terms) {
@@ -127,7 +124,7 @@ class Doc extends DocBase {
       baseEmbed.title = 'Search results:'
       baseEmbed.description = 'No result found!'
       baseEmbed.image = {
-        url: 'https://raw.githubusercontent.com/DevSnowflake/canvacord-docs/master/src/assets/awesome.png',
+        url: 'https://raw.githubusercontent.com/Snowflake107/dp-website/master/src/assets/awesome.png',
       }
       return baseEmbed
     };
@@ -172,7 +169,8 @@ class Doc extends DocBase {
       'canvacord': 'Canvacord Docs',
       'soundcloud': 'SoundCloud Docs',
       'quickmongo': 'QuickMongo Docs',
-      'quick.eco': 'quick.eco Docs'
+      'quick.eco': 'quick.eco Docs',
+      'discord-player': 'Discord Player Docs'
     }[this.repo] || this.repo
 
     return {
@@ -180,7 +178,7 @@ class Doc extends DocBase {
       author: {
         name: `${title} (${this.branch})`,
         url: this.baseDocsURL,
-        icon_url: this.icon
+        icon_url: this.repo === DiscordPlayer ? this.icon.replace('.png', '.jpg') : this.icon
       }
     }
   }
@@ -211,10 +209,11 @@ class Doc extends DocBase {
       canvacord: 'Canvacord',
       soundcloud: 'Soundcloud-Scraper',
       quickmongo: 'QuickMongo',
-      eco: 'quick.eco'
+      eco: 'quick.eco',
+      'discord-player': 'discord-player'
     }[name]
 
-    return `https://github.com/DevSnowflake/${project}/blob/${branch}/`
+    return `https://github.com/${project === 'discord-player' ? 'Androz2091' : 'DevSnowflake'}/${project}/blob/${branch}/`
   }
 
   static sources () {
@@ -223,7 +222,7 @@ class Doc extends DocBase {
 
   /**
    * Fetch the docs
-   * @param {"canvacord"|"soundcloud"|"quickmongo"|"eco"} sourceName Docs source name
+   * @param {"canvacord"|"soundcloud"|"quickmongo"|"eco"|"discord-player"} sourceName Docs source name
    * @param {object} fetchOptions Fetch options
    * @param {boolean} [fetchOptions.force=false] If it should forcefully fetch the doc 
    * @returns {Promise<Doc>}

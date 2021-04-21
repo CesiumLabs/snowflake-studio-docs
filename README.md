@@ -19,3 +19,4 @@ Docs.fetch('canvacord')
 - soundcloud
 - quickmongo
 - eco
+- discord-player
