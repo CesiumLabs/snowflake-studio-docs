@@ -53,7 +53,7 @@ class Doc extends DocBase {
       case SoundCloud: return 'https://soundcloud-scraper.js.org'
       case QuickMongo: return 'https://quickmongo.js.org'
       case Eco: return 'https://eco.js.org'
-      case DiscordPlayer: return 'https://discord-player-docs.netlify.app'
+      case DiscordPlayer: return 'https://discord-player.js.org'
       default: return null
     }
   }
