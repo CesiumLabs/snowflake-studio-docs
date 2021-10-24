@@ -1,7 +1,7 @@
 declare module "snowflake-studio-docs" {
     import type Fuse from 'fuse.js';
 
-    export type Library = "canvacord" | "soundcloud" | "quickmongo" | "eco" | "discord-player";
+    export type Library = "canvacord" | "soundcloud" | "quickmongo" | "eco" | "discord-player" | "discord.js";
     export type ElementType = "class" | "interface" | "event" | "method" | "param" | "prop" | "typedef";
     export type Element = DocClass | DocProp | DocEvent | DocTypedef | DocInterface | DocMethod | DocParam;
 

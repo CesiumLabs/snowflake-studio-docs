@@ -15,6 +15,7 @@ const SoundCloud = 'soundcloud-scraper'
 const QuickMongo = 'quickmongo'
 const Eco = 'quick.eco'
 const DiscordPlayer = 'discord-player'
+const DiscordJS = 'discord.js'
 
 function dissectURL (url) {
   const parts = url.slice(34).split('/')
@@ -54,6 +55,7 @@ class Doc extends DocBase {
       case QuickMongo: return 'https://quickmongo.js.org'
       case Eco: return 'https://eco.js.org'
       case DiscordPlayer: return 'https://discord-player.js.org'
+      case DiscordJS: return 'https://discord.js.org'
       default: return null
     }
   }
@@ -167,7 +169,8 @@ class Doc extends DocBase {
       'soundcloud': 'SoundCloud Docs',
       'quickmongo': 'QuickMongo Docs',
       'quick.eco': 'quick.eco Docs',
-      'discord-player': 'Discord Player Docs'
+      'discord-player': 'Discord Player Docs',
+      'discord.js': 'Discord.js Docs'
     }[this.repo] || this.repo
 
     return {
@@ -207,10 +210,11 @@ class Doc extends DocBase {
       soundcloud: 'Soundcloud-Scraper',
       quickmongo: 'QuickMongo',
       eco: 'quick.eco',
-      'discord-player': 'discord-player'
+      'discord-player': 'discord-player',
+      'discord.js': 'discord.js'
     }[name]
 
-    return `https://github.com/${project === 'discord-player' ? 'Androz2091' : 'DevSnowflake'}/${project}/blob/${branch}/`
+    return `https://github.com/${project === 'discord.js' ? 'discordjs' : project === 'discord-player' ? 'Androz2091' : 'DevSnowflake'}/${project}/blob/${branch}/`
   }
 
   static sources () {
@@ -219,7 +223,7 @@ class Doc extends DocBase {
 
   /**
    * Fetch the docs
-   * @param {"canvacord"|"soundcloud"|"quickmongo"|"eco"|"discord-player"} sourceName Docs source name
+   * @param {"canvacord"|"soundcloud"|"quickmongo"|"eco"|"discord-player"|"discord.js"} sourceName Docs source name
    * @param {object} fetchOptions Fetch options
    * @param {boolean} [fetchOptions.force=false] If it should forcefully fetch the doc 
    * @returns {Promise<Doc>}
