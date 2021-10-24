@@ -61,16 +61,16 @@ class Doc extends DocBase {
   get baseDocsURL () {
     if (!this.baseURL) return null
     const repo = [Canvacord, SoundCloud, QuickMongo, DiscordPlayer].includes(this.repo) ? 'main' : this.repo;
-    return `${this.baseURL}/#/docs/${repo}/${this.branch}`
+    return `${this.baseURL}/docs/${repo}/${this.branch}`
   }
 
   get icon () {
     if (!this.baseURL) return null
-    return `${this.baseURL}/static/icons/icon.png`
+    return `${this.baseURL}/icon.${this.baseURL.includes("canvacord") ? "png" : "jpg"}`
   }
 
   get color () {
-    return this.repo === DiscordPlayer ? 0xff5959 : 0x4d5e94;
+    return 0x4A67CF;
   }
 
   get (...terms) {
@@ -123,9 +123,6 @@ class Doc extends DocBase {
       const baseEmbed = this.baseEmbed()
       baseEmbed.title = 'Search results:'
       baseEmbed.description = 'No result found!'
-      baseEmbed.image = {
-        url: 'https://raw.githubusercontent.com/Snowflake107/dp-website/master/src/assets/awesome.png',
-      }
       return baseEmbed
     };
 
