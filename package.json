@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "description": "Docs package for Snowflake Studio.",
   "main": "index.js",
+  "types": "typings/index.d.ts",
   "scripts": {
     "test": "cd test && node ."
   },
